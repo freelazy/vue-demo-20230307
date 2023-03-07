@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+     .article {
+         border: 1px solid lightgrey;
+         border-radius: 3px;
+         padding: 0px;
+         width: 500px;
+     }
+     .article > * {
+         padding: 8px;
+     }
+     .article > header {
+         display: flex;
+         justify-content: space-between;
+         background: lightgray;
+     }
+     .article > header > h3 {
+         margin: 0; font-family: 楷体;
+     }
+     .article > footer {
+         display: flex;
+         justify-content: space-between;
+         margin-top: 1em;
+         border-top: 1px solid lightgray;
+     }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <Tit title="LOGO" color="red" daxiao="8"></Tit>
+
+      <div class="art-list">
+        <art v-bind="article" class="article" @yyy="doLike"></art>
+      </div>
+      <p>
+        我的点赞数: {{article.liked}}
+      </p>
+    </div>
+
+    <script type="module">
+      import Tit from './components/Title.js';
+      import Art from './components/Article.js';
+
+      new Vue({
+          el: "#app",
+          components: { Art, Tit },
+          data: {
+              article: {
+                  title: "狂人日记",
+                  content: "救救孩子。世界上本没有路，走的人多了，便有了路。于是，我便是那光。",
+                  author: "鲁迅",
+                  created: "1918-11-22",
+                  liked: "33",
+                  clicked: "445",
+              }
+          },
+          methods: {
+              doLike() {
+                  let liked = this.article.liked;
+                  this.article.liked = parseInt(liked) + 1;
+              }
+          }
+      });
+    </script>
+  </body>
+</html>
