@@ -15,10 +15,7 @@ export default {
      {{content}}
    </section>
 
-   <ft :clicked="clicked"
-       :created="created"
-       :liked="liked"
-       @xxx="$emit('yyy')"></ft>
+   <ft v-bind='$props' v-on='$listeners'></ft>
 </article>
 `,
     data() {

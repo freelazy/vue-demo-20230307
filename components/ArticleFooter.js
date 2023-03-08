@@ -3,12 +3,12 @@ export default {
     template: `
 <footer>
   <p>日期: <span>{{created}}</span></p>
-  <p @click="doLike">点赞: ({{liked}})</p>
+  <p @click="xxx">点赞: ({{liked}})</p>
   <p>点击: ({{clicked}})</p>
 </footer>`,
     methods: {
-        doLike() {
-            this.$emit('xxx');
+        xxx() {
+            this.$root.doLike();
         }
     }
 }

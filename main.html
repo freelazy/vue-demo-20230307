@@ -35,7 +35,7 @@
       <Tit title="LOGO" color="red" daxiao="8"></Tit>
 
       <div class="art-list">
-        <art v-bind="article" class="article" @yyy="doLike"></art>
+        <art v-bind="article" class="article" @xxx="doLike"></art>
       </div>
       <p>
         我的点赞数: {{article.liked}}
@@ -46,8 +46,7 @@
       import Tit from './components/Title.js';
       import Art from './components/Article.js';
 
-      new Vue({
-          el: "#app",
+      var vm = new Vue({
           components: { Art, Tit },
           data: {
               article: {
@@ -66,6 +65,10 @@
               }
           }
       });
+
+      vm.$mount("#app");
+
+      window.vm = vm;
     </script>
   </body>
 </html>
